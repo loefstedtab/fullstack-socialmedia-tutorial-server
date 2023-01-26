@@ -3,6 +3,10 @@ const router = express.Router();
 const isAuth = require("../isAuth");
 const pool = require("../db");
 
+router.get('/',  (req, res) => {
+  res.send("HELLLOLOADSFKSADF")
+})
+
 router.get("/account", isAuth, (req, res) => {
   const user = {
     ...req.user,

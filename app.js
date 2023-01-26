@@ -5,6 +5,7 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 require("./auth.js");
+const db = require('./db')
 
 app.use(express.json());
 
@@ -36,6 +37,9 @@ app.use("/", indexRouter);
 const authRouter = require("./routes/authRouter");
 app.use("/auth", authRouter);
 
-app.listen(process.env.PORT || 4000, () => {
-  console.log("Server listening on port 4000");
-});
+
+db.sync({force:true}).then(() => {
+  app.listen(process.env.PORT || 4000, () => {
+    console.log("Server listening on port 4000");
+  });
+})

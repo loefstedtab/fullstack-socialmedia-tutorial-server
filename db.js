@@ -9,12 +9,13 @@ require("dotenv").config();
 //   password: process.env.DATABASE_PASSWORD,
 // });
 
-const Sequelize = require('sequelize')
-
+const Sequelize = require("sequelize");
 
 const db = new Sequelize(
-  process.env.DATABASE_URL || 'postgres://localhost:5432/passporttest', {logging: false})
-  
-module.exports = db
+  process.env.DATABASE_URL || "postgres://localhost:5432/passport",
+  { logging: false }
+);
+
+module.exports = db;
 
 // module.exports = pool;
